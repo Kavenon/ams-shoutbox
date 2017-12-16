@@ -13,6 +13,7 @@
 		8E6D58291FE5C7B2002164CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E6D58271FE5C7B2002164CE /* Main.storyboard */; };
 		8E6D582B1FE5C7B2002164CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E6D582A1FE5C7B2002164CE /* Assets.xcassets */; };
 		8E6D582E1FE5C7B2002164CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E6D582C1FE5C7B2002164CE /* LaunchScreen.storyboard */; };
+		8E6D58381FE5E73C002164CE /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D58371FE5E73C002164CE /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		8E6D582A1FE5C7B2002164CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E6D582D1FE5C7B2002164CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E6D582F1FE5C7B2002164CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E6D58371FE5E73C002164CE /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		AFB7A1E2B1B39F839800AA79 /* Pods-ams-shoutbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ams-shoutbox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ams-shoutbox/Pods-ams-shoutbox.debug.xcconfig"; sourceTree = "<group>"; };
 		BF51EFD901D1996F7E973AB8 /* Pods-ams-shoutbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ams-shoutbox.release.xcconfig"; path = "Pods/Target Support Files/Pods-ams-shoutbox/Pods-ams-shoutbox.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,6 +77,7 @@
 				8E6D582A1FE5C7B2002164CE /* Assets.xcassets */,
 				8E6D582C1FE5C7B2002164CE /* LaunchScreen.storyboard */,
 				8E6D582F1FE5C7B2002164CE /* Info.plist */,
+				8E6D58371FE5E73C002164CE /* Message.swift */,
 			);
 			path = "ams-shoutbox";
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E6D58381FE5E73C002164CE /* Message.swift in Sources */,
 				8E6D58261FE5C7B2002164CE /* ViewController.swift in Sources */,
 				8E6D58241FE5C7B2002164CE /* AppDelegate.swift in Sources */,
 			);
@@ -386,6 +390,7 @@
 				8E6D58341FE5C7B2002164CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

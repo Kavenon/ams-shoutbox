@@ -8,6 +8,8 @@
 
 import UIKit
 import DGElasticPullToRefresh
+import Alamofire
+import SwiftyJSON
 
 class ViewController: UITableViewController {
 
@@ -28,14 +30,34 @@ class ViewController: UITableViewController {
         let sendAction = UIAlertAction(title: "Send", style: .default, handler: { action in
             let name = alertController.textFields?[0].text
             let message = alertController.textFields?[1].text
-            print(name!)
-            print(message!)
-            // do something
+            if(name != "" && message != ""){
+                self.sendAndRefresh(name: name!, message: message!)
+            }
         })
         alertController.addAction(sendAction)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in })
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: { _ in })
+    }
+    
+    func sendAndRefresh(name: String, message: String){
+        let parameters: Parameters = [
+            "name": name,
+            "message": message
+        ]
+        
+        Alamofire.request("https://requestb.in/rkmbazrk", method: .post, parameters: parameters).responseJSON { response in
+            print("sent")
+        }
+    }
+    
+    func getMessages(){
+        Alamofire.request("https://api.myjson.com/bins/dhtsj").responseJSON { response in
+            let messages: [Message] = JSON(response.result.value!)
+            let sorted = messages.sorted{$0.timestamp > $1.timestamp};
+            
+            print(sorted)
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -52,6 +74,7 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.getMessages()
         let loadingView = DGElasticPullToRefreshLoadingViewCircle()
         loadingView.tintColor = UIColor(red: 78/255.0, green: 221/255.0, blue: 200/255.0, alpha: 1.0)
         tableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
