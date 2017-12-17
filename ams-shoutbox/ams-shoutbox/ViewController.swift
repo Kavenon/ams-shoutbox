@@ -97,7 +97,7 @@ class ViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let message = self.messages[indexPath.item]
         cell.textLabel?.text = String(format: NSLocalizedString("%d minutes ago", comment: ""), getTimeAgo(timestamp: message.timestamp))
-        cell.detailTextLabel?.text = String(format: NSLocalizedString("%@ says %@", comment: ""), message.name, message.message)
+        cell.detailTextLabel?.text = String(format: NSLocalizedString("%@ says %@", comment: ""), message.name.capitalized, message.message)
         return cell
     }
     
@@ -107,6 +107,7 @@ class ViewController: UITableViewController {
         self.getMessages(){
             print("Messages loaded")
         }
+        
         
         let loadingView = DGElasticPullToRefreshLoadingViewCircle()
         loadingView.tintColor = UIColor(red: 78/255.0, green: 221/255.0, blue: 200/255.0, alpha: 1.0)
