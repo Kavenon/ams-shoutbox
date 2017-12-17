@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  ams-shoutbox
+
+  Created by Kamil on 12/17/17.
+  Copyright © 2017 Kamil. All rights reserved.
+*/
+
+"New message" = "New message";
+"Please state your name and message" = "Please state your name and message";
+"Your name" = "Your name";
+"Your message" = "Your message";
+"Send" = "Send";
+"Cancel" = "Cancel";
+"%d minutes ago" = "%d minutes ago";
+"%@ says %@" = "%@ says %@";

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ams-shoutbox/ViewController.swift"
-            timestampString = "535165053.928004"
+            timestampString = "535195376.639738"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "showAlert()"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,7 +42,7 @@
                   moduleName = "ams-shoutbox"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kamil/ams-shoutbox/ams-shoutbox/ams-shoutbox/Message.swift"
-                  timestampString = "535165230.74267"
+                  timestampString = "535195626.125464"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -57,12 +57,108 @@
                   moduleName = "ams-shoutbox"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kamil/ams-shoutbox/ams-shoutbox/ams-shoutbox/Message.swift"
-                  timestampString = "535165230.757533"
+                  timestampString = "535195626.137523"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
                   endingLineNumber = "14"
                   offsetFromSymbolStart = "109">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ams-shoutbox/ViewController.swift"
+            timestampString = "535194580.175513"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "showAlert()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ams_shoutbox.ViewController.showAlert () -&gt; ()"
+                  moduleName = "ams-shoutbox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kamil/ams-shoutbox/ams-shoutbox/ams-shoutbox/ViewController.swift"
+                  timestampString = "535194580.409354"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "494">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ams_shoutbox.ViewController.(showAlert () -&gt; ()).(closure #1)"
+                  moduleName = "ams-shoutbox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kamil/ams-shoutbox/ams-shoutbox/ams-shoutbox/ViewController.swift"
+                  timestampString = "535194580.419637"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "146">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ams-shoutbox/ViewController.swift"
+            timestampString = "535194771.833784"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ams_shoutbox.ViewController.viewDidLoad () -&gt; ()"
+                  moduleName = "ams-shoutbox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kamil/ams-shoutbox/ams-shoutbox/ams-shoutbox/ViewController.swift"
+                  timestampString = "535194772.067255"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "102">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ams_shoutbox.ViewController.(viewDidLoad () -&gt; ()).(closure #1)"
+                  moduleName = "ams-shoutbox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kamil/ams-shoutbox/ams-shoutbox/ams-shoutbox/ViewController.swift"
+                  timestampString = "535194772.079521"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "15">
                </Location>
             </Locations>
          </BreakpointContent>

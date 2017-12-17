@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "CbG-xX-Fby"; */
+"CbG-xX-Fby.text" = "Tytuł";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "hrS-xC-vSJ"; */
+"hrS-xC-vSJ.text" = "Podtytuł";
+
+/* Class = "UIBarButtonItem"; title = "Compose"; ObjectID = "jIz-vJ-ArF"; */
+"jIz-vJ-ArF.title" = "Utwórz";

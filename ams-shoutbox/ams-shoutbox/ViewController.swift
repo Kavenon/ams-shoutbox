@@ -21,14 +21,21 @@ class ViewController: UITableViewController {
     }
     
     func showAlert(){
-        let alertController = UIAlertController(title: "New message", message: "Please state your name and message", preferredStyle: .alert)
+        let title = NSLocalizedString("New message", comment: "")
+        let message = NSLocalizedString("Please state your name and message", comment: "")
+        let nameField = NSLocalizedString("Your name", comment: "")
+        let msgField = NSLocalizedString("Your message", comment: "")
+        let send = NSLocalizedString("Send", comment: "")
+        let cancel = NSLocalizedString("Cancel", comment: "")
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addTextField(configurationHandler: { textField in
-            textField.placeholder = "Your name"
+            textField.placeholder = nameField
         } )
         alertController.addTextField(configurationHandler: { textField in
-            textField.placeholder = "Your message"
+            textField.placeholder = msgField
         } )
-        let sendAction = UIAlertAction(title: "Send", style: .default, handler: { action in
+        let sendAction = UIAlertAction(title: send, style: .default, handler: { action in
             let name = alertController.textFields?[0].text
             let message = alertController.textFields?[1].text
             if(name != "" && message != ""){
@@ -36,7 +43,7 @@ class ViewController: UITableViewController {
             }
         })
         alertController.addAction(sendAction)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in })
+        let cancelAction = UIAlertAction(title: cancel, style: .cancel, handler: { _ in })
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: { _ in })
     }
@@ -89,8 +96,8 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let message = self.messages[indexPath.item]
-        cell.textLabel?.text = "\(getTimeAgo(timestamp: message.timestamp)) minutes ago"
-        cell.detailTextLabel?.text = "\(message.name) says: \(message.message)"
+        cell.textLabel?.text = String(format: NSLocalizedString("%d minutes ago", comment: ""), getTimeAgo(timestamp: message.timestamp))
+        cell.detailTextLabel?.text = String(format: NSLocalizedString("%@ says %@", comment: ""), message.name, message.message)
         return cell
     }
     
@@ -104,8 +111,6 @@ class ViewController: UITableViewController {
         let loadingView = DGElasticPullToRefreshLoadingViewCircle()
         loadingView.tintColor = UIColor(red: 78/255.0, green: 221/255.0, blue: 200/255.0, alpha: 1.0)
         tableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
-            // Add your logic here
-            // Do not forget to call dg_stopLoading() at the end
             self?.getMessages() {
                 print("Messages loaded")
                 self?.tableView.dg_stopLoading()
