@@ -13,7 +13,8 @@ import SwiftyJSON
 
 class ViewController: UITableViewController {
 
-    let myarray = ["item1", "item2", "item3"]
+    var messages: [Message] = []
+    let API = "http://10.0.2.2:8080";
     
     @IBAction func onCompose(_ sender: Any) {
         self.showAlert()
@@ -46,41 +47,70 @@ class ViewController: UITableViewController {
             "message": message
         ]
         
-        Alamofire.request("https://requestb.in/rkmbazrk", method: .post, parameters: parameters).responseJSON { response in
-            print("sent")
+        Alamofire.request(self.API, method: .post, parameters: parameters).responseJSON { response in
+            self.getMessages(){
+                print("Messages loaded")
+            }
         }
     }
     
-    func getMessages(){
-        Alamofire.request("https://api.myjson.com/bins/dhtsj").responseJSON { response in
-            let messages: [Message] = JSON(response.result.value!)
+    func getMessages(complete: @escaping () -> Void){
+        Alamofire.request(self.API).responseJSON { response in
+            if let res = response.result.value {
+            let messagesJSON = JSON(res)
+            var messages: [Message] = []
+            for (_, dict) in messagesJSON {
+                messages.append(Message(name: dict["name"].stringValue, message: dict["message"].stringValue, timestamp: dict["timestamp"].intValue))
+            }
             let sorted = messages.sorted{$0.timestamp > $1.timestamp};
             
-            print(sorted)
+            self.messages = sorted;
+            complete()
+            
+            self.tableView.reloadData();
+            }
         }
+    }
+    
+    func getTimeAgo(timestamp: Int) -> Int {
+    
+        let elapsed = Int(NSDate().timeIntervalSince1970) - timestamp;
+        if(elapsed < 0){
+            return 0;
+        }
+        return (elapsed % 3600) / 60
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return myarray.count
+        return self.messages.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = myarray[indexPath.item]
-        cell.detailTextLabel?.text = "test";
+        let message = self.messages[indexPath.item]
+        cell.textLabel?.text = "\(getTimeAgo(timestamp: message.timestamp)) minutes ago"
+        cell.detailTextLabel?.text = "\(message.name) says: \(message.message)"
         return cell
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.getMessages()
+        self.getMessages(){
+            print("Messages loaded")
+        }
+        
         let loadingView = DGElasticPullToRefreshLoadingViewCircle()
         loadingView.tintColor = UIColor(red: 78/255.0, green: 221/255.0, blue: 200/255.0, alpha: 1.0)
         tableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
             // Add your logic here
             // Do not forget to call dg_stopLoading() at the end
-            self?.tableView.dg_stopLoading()
+            self?.getMessages() {
+                print("Messages loaded")
+                self?.tableView.dg_stopLoading()
+            }
+            
             }, loadingView: loadingView)
         tableView.dg_setPullToRefreshFillColor(UIColor(red: 57/255.0, green: 67/255.0, blue: 89/255.0, alpha: 1.0))
         tableView.dg_setPullToRefreshBackgroundColor(tableView.backgroundColor!)
