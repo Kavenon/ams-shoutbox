@@ -14,7 +14,7 @@ import SwiftyJSON
 class ViewController: UITableViewController {
 
     var messages: [Message] = []
-    let API = "http://10.0.2.2:8080";
+    let API = "https://home.agh.edu.pl/~ernst/shoutbox.php?secret=ams2017";
     
     @IBAction func onCompose(_ sender: Any) {
         self.showAlert()
@@ -64,10 +64,19 @@ class ViewController: UITableViewController {
     func getMessages(complete: @escaping () -> Void){
         Alamofire.request(self.API).responseJSON { response in
             if let res = response.result.value {
-            let messagesJSON = JSON(res)
+                
+            let responseJSON = JSON(res)
             var messages: [Message] = []
-            for (_, dict) in messagesJSON {
-                messages.append(Message(name: dict["name"].stringValue, message: dict["message"].stringValue, timestamp: dict["timestamp"].intValue))
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let msgJSON = responseJSON["entries"];
+            
+            for (_, dict) in msgJSON {
+                
+                let stringDate = dict["timestamp"].stringValue
+                let timestamp = Int(dateFormatter.date(from: stringDate)!.timeIntervalSince1970)
+                
+                messages.append(Message(name: dict["name"].stringValue, message: dict["message"].stringValue, timestamp: timestamp))
             }
             let sorted = messages.sorted{$0.timestamp > $1.timestamp};
             
@@ -85,7 +94,7 @@ class ViewController: UITableViewController {
         if(elapsed < 0){
             return 0;
         }
-        return (elapsed % 3600) / 60
+        return (elapsed / 60)
         
     }
     
